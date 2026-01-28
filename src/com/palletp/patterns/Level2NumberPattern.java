@@ -346,6 +346,7 @@ class Level2 {
 
 			}
 			System.out.println();
+			
 		}
 	}
 
