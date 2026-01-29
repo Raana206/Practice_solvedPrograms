@@ -17,6 +17,8 @@ public class Level2NumberPattern {
 		level2.xPattern();
 		level2.spiralStarPattern();
 		level2.hollowSquareWithDiagonals();
+		level2.mirrorNumberPyramid();
+		level2.hollowDiamondNumberPattern();
 	}
 }
 
@@ -323,7 +325,7 @@ class Level2 {
 		System.out.println();
 	}
 
-	public void hollowSquareWithDiagonals() { // please remember the logic 
+	public void hollowSquareWithDiagonals() { // please remember the logic
 
 		int n = 5;
 		for (int i = 0; i < n; i++) {
@@ -346,8 +348,104 @@ class Level2 {
 
 			}
 			System.out.println();
-			
+
 		}
+	}
+
+	public void zigZagPattern() {
+
+	}
+
+	public void mirrorNumberPyramid() { // imp logic
+
+		int n = 7;
+		int mid = n / 2;
+
+		// Upper half (including middle)
+		for (int i = 0; i <= mid; i++) {
+
+			// spaces
+			for (int s = 0; s < i; s++) {
+				System.out.print(" ");
+			}
+
+			// increasing numbers
+			for (int num = 1; num <= mid - i + 1; num++) {
+				System.out.print(num);
+			}
+
+			// decreasing numbers
+			for (int num = mid - i; num >= 1; num--) {
+				System.out.print(num);
+			}
+
+			System.out.println();
+		}
+
+		// Lower half
+		for (int i = mid - 1; i >= 0; i--) {
+
+			// spaces
+			for (int s = 0; s < i; s++) {
+				System.out.print(" ");
+			}
+
+			// increasing numbers
+			for (int num = 1; num <= mid - i + 1; num++) {
+				System.out.print(num);
+			}
+
+			// decreasing numbers
+			for (int num = mid - i; num >= 1; num--) {
+				System.out.print(num);
+			}
+
+			System.out.println();
+		}
+	}
+
+	public void hollowDiamondNumberPattern() {
+
+		int n = 7;
+
+		for (int i = 1; i <= n; i += 2) {
+
+			for (int s = 1; s <= (n-i)/2; s++) {
+				System.out.print(" ");
+			}
+
+			for (int j = 1; j <= i; j++) {
+
+				if (j == 1 || i == j) {
+					System.out.print(j + " ");
+				} else {
+					System.out.print(" ");
+				}
+			}
+
+			System.out.println();
+		}
+
+		// lower Half
+
+		for (int i = n - 2; i >= 1; i -= 2) {
+
+			for (int s = 1; s <= (n-i)/2; s++) {
+				System.out.print(" ");
+			}
+
+			for (int j = 1; j <= i; j++) {
+
+				if (j == 1 || j == i) {
+					System.out.print(j + " ");
+				} else {
+					System.out.print(" ");
+				}
+			}
+
+			System.out.println();
+		}
+
 	}
 
 }
