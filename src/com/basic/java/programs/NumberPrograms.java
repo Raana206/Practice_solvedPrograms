@@ -55,10 +55,14 @@ class Programs {
 	}
 
 	public void primeNumber() {
-		System.out.println(Math.sqrt(5));
 
-		for (int i = 2; i <= 10; i++) {
+		int initialValue=10; int endValue=50;
+		for (int i = initialValue; i <= endValue; i++) {
 
+			if(i<2) 
+				
+			continue;
+			
 			boolean isPrime = true;
 
 //			 i/2= instead of we use  Math.Sq
