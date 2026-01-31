@@ -2,7 +2,7 @@ package com.palletp.stringAsgn;
 
 import java.util.Scanner;
 
-public class SMARTPUBLICTRANSPORTFARETIMESYSTEM {
+public class SmartPublicTransportFareTimeSystem {
 
 	public static void main(String[] args) {
 
