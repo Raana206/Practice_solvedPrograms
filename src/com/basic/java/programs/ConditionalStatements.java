@@ -35,17 +35,17 @@ class SolvedPrograms {
 
 	public void findTheSecondSmallestNumber() {
 
-		int x = 20;
-		int y = 40;
-		int z = 30;
-		int k = 45;
+		int x = 10;
+		int y = 10;
+		int z = 5;
+		int k = 15;
 
 		int smallestNo = 0;
-		if (x < y && x < z && x < k) {
+		if (x <= y && x <= z && x <= k) {
 			smallestNo = x;
-		} else if (y < x && y < z && y < k) {
+		} else if (y <= x && y <= z && y <= k) {
 			smallestNo = y;
-		} else if (z < x && z < y && z < k) {
+		} else if (z <= x && z <= y && z <= k) {
 
 			smallestNo = z;
 		} else {
@@ -55,15 +55,15 @@ class SolvedPrograms {
 		int secondSmallestNo = 0;
 
 		if (smallestNo == x) {
-             secondSmallestNo= (y<z && y<k)? y :((z<k)?z:k);
-		}else if(smallestNo==y) {
-			secondSmallestNo=(x<z && x<k)?x :((z<k)?z:k);
-		}else if(smallestNo==z) {
-			secondSmallestNo=(x<y && x<k)?x :((y<k)?y :k);
-		}else {
-			secondSmallestNo=k;
+			secondSmallestNo = (y < z && y < k) ? y : ((z < k) ? z : k);
+		} else if (smallestNo == y) {
+			secondSmallestNo = (x < z && x < k) ? x : ((z < k) ? z : k);
+		} else if (smallestNo == z) {
+			secondSmallestNo = (x < y && x < k) ? x : ((y < k) ? y : k);
+		} else {
+			secondSmallestNo = k;
 		}
-		System.out.println("Second Smallest Number"+secondSmallestNo);
+		System.out.println("Second Smallest Number" + secondSmallestNo);
 	}
 
 	public void findTheSmallestNumber() {
@@ -88,10 +88,10 @@ class SolvedPrograms {
 
 	public void findTheLargestOfFour() {
 
-		int x = 20;
-		int y = 40;
-		int z = 30;
-		int k = 45;
+		int x = 10;
+		int y = 20;
+		int z = 10;
+		int k = 20;
 
 		if (x > y && x > z && x > k) {
 			System.out.println("LargestOf" + x);

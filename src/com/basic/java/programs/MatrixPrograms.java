@@ -60,7 +60,7 @@ class program3 {
 
 			for (int j = 0; j < matx1[i].length; j++) {
 
-				if (j <= i) {
+				if (j <= i) { 
 					System.out.print(matx1[i][j] + " ");
 				} else {
 					System.out.print("0 ");
@@ -78,7 +78,7 @@ class program3 {
 
 		for (int i = 0; i < matx1.length; i++) {
 
-			for (int j = 0; j <matx1.length; j++) {
+			for (int j = 0; j <matx1[i].length; j++) {
 
 				if (j >= i) {
 					System.out.print(matx1[i][j] + " ");
