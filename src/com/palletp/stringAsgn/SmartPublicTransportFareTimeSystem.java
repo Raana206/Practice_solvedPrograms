@@ -126,7 +126,8 @@ public class SmartPublicTransportFareTimeSystem {
 
 		System.out.println("Transport type:" + transportVehicle + "\n" + "Distance Travelled:" + distance + "\n"
 				+ "Final fare payable:" + baseFare + "\n" + "Estimated travel time (minutes):" + travelTimeEstimation
-				+ "\n" + "Delay:" + delayTime + "\n" + "Final total journey time:" + totalJourneyTime);
+				+ " min" + "\n" + "Delay:" + delayTime + " min" + "\n" + "Final total journey time:" + totalJourneyTime
+				+ " min");
 
 	}
 
