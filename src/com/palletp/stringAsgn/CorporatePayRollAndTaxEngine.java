@@ -21,7 +21,7 @@ public class CorporatePayRollAndTaxEngine {
 
 		int designation = scanner.nextInt();
 
-		if (!(designation >= 1 && designation <= 4)) {
+		if (designation <1 || designation > 4) {
 			System.out.println("Employee Desgination is Not Matched! Please Verify");
 			return;
 		}
@@ -117,7 +117,7 @@ public class CorporatePayRollAndTaxEngine {
 
 			incomeTax = 0.0;
 
-		} else if (grossSalary >= 40001 && grossSalary <= 80000) {
+		} else if (grossSalary >= 40001 && grossSalary <80000) {
 
 			incomeTax = (grossSalary * 10) / 100;
 
