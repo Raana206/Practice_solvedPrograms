@@ -13,7 +13,7 @@ public class SmartPublicTransportFareTimeSystem {
 		int distance = scanner.nextInt();
 
 		if (distance <= 0) {
-			System.out.println("Total Travel distance not zero .please verify ");
+			System.out.println("Invalid distance. Distance must be greater than 0");
 			return;
 		}
 
@@ -21,7 +21,7 @@ public class SmartPublicTransportFareTimeSystem {
 
 		int transportType = scanner.nextInt();
 
-		if (!(transportType >= 1) && (!(transportType <= 3))) {
+		if ((transportType < 1) || ((transportType > 3))) {
 
 			System.out.println(" Type Of Transport doesn't .Please Verify");
 			return;
@@ -55,7 +55,7 @@ public class SmartPublicTransportFareTimeSystem {
 
 		int travelTime = scanner.nextInt();
 
-		if (!(travelTime >= 1) && (!(travelTime >= 2))) {
+		if (travelTime != 1 && travelTime != 2) {
 
 			System.out.println("Please Cross Check Time Of Travel!");
 			return;
@@ -93,7 +93,7 @@ public class SmartPublicTransportFareTimeSystem {
 			return;
 		}
 
-		int baseFare = calculateBaseFare(transportVehicle, distance, ratePerKm); // step 1
+		int baseFare = calculateBaseFare( distance, ratePerKm); // step 1
 
 		if (baseFare < 20) {
 
@@ -103,22 +103,21 @@ public class SmartPublicTransportFareTimeSystem {
 		int timeBasedFareAdjustment = calculateTimeBasedFareAdjusment(baseFare, travelHours); // step 2
 
 		baseFare += timeBasedFareAdjustment;
-
-		int ageBasedDiscount = calculateAgeBasedDiscount(baseFare, passengerAge); // step3
-
-		if (ageBasedDiscount == 0) {
+		int ageBasedDisCount= calculateAgeBasedDiscount(baseFare, passengerAge);
+		if (passengerAge <= 5) {
 			baseFare = 0;
-		} else if (baseFare == ageBasedDiscount) {
-			baseFare = ageBasedDiscount;
-		} else {
-			baseFare = baseFare - ageBasedDiscount;
+		} else if(baseFare==ageBasedDisCount){
+			baseFare =ageBasedDisCount;
+
+		}else {
+			baseFare=baseFare-ageBasedDisCount;
 		}
 
 		int passHolderDiscount = calculatePassHolderDiscount(baseFare, isPassHolder); // step4
 
 		baseFare = baseFare - passHolderDiscount;
 
-		int travelTimeEstimation = calculateTravelTimeEstimation(transportVehicle, distance, speed); // step 5
+		int travelTimeEstimation = calculateTravelTimeEstimation(distance, speed); // step 5
 
 		int delayTime = calculateDelayConditions(travelHours, distance); // step6
 
@@ -149,29 +148,12 @@ public class SmartPublicTransportFareTimeSystem {
 
 	}
 
-	public static int calculateTravelTimeEstimation(String transportVehicle, int distance, int speed) {
-
-		int time = 0;
-
-		if (transportVehicle.equalsIgnoreCase("Bus")) {
-
-			time = TimeCalculation(distance, speed);
-
-		} else if (transportVehicle.equalsIgnoreCase("Metro")) {
-
-			time = TimeCalculation(distance, speed);
-		} else {
-			time = TimeCalculation(distance, speed);
-		}
-		return time;
-
-	}
-
-	public static int TimeCalculation(int distance, int speed) {
+	public static int calculateTravelTimeEstimation(int distance, int speed) {
 
 		int estimatedTime = (distance * 60) / speed;
 
 		return estimatedTime;
+
 	}
 
 	public static int calculatePassHolderDiscount(int baseFare, String isPassHolder) {
@@ -194,9 +176,7 @@ public class SmartPublicTransportFareTimeSystem {
 
 		int ageFareDiscount = 0;
 
-		if (passengerAge <= 5) {
-			ageFareDiscount = 0;
-		} else if (passengerAge >= 6 && passengerAge <= 17) {
+		if (passengerAge >= 6 && passengerAge <= 17) {
 
 			ageFareDiscount = (baseFare * 30) / 100;
 		} else if (passengerAge >= 60) {
@@ -224,22 +204,9 @@ public class SmartPublicTransportFareTimeSystem {
 		return addOnFare;
 	}
 
-	public static int calculateBaseFare(String transportVehicle, int distance, int ratePerKm) {
+	public static int calculateBaseFare(int distance, int ratePerKm) {
 
-		int calBaseFare = 0;
-
-		if (transportVehicle.equalsIgnoreCase("Bus")) {
-
-			calBaseFare = distance * ratePerKm;
-		} else if (transportVehicle.equalsIgnoreCase("Metro")) {
-
-			calBaseFare = distance * ratePerKm;
-		} else {
-
-			calBaseFare = distance * ratePerKm;
-		}
-
-		return calBaseFare;
+		return distance * ratePerKm;
 
 	}
 
