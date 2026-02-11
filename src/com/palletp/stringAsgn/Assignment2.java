@@ -105,11 +105,11 @@ public class Assignment2 {
 		String usingCharacterCount = concept.usingCharacterCount(name);
 		System.out.println(usingCharacterCount);
 
-		boolean checkSubString =concept.findsubString("abc","ahbgdc");
-		
+		boolean checkSubString = concept.findsubString("abc", "ahbgdc");
+
 		System.out.println(checkSubString);
 		sc.close();
-		
+
 	}
 }
 
@@ -168,8 +168,6 @@ class StringConcepts {
 
 		mapCount.put("Vowels", vCount);
 		mapCount.put("Consonant", cCount);
-		
-		
 
 		return mapCount;
 
@@ -188,8 +186,6 @@ class StringConcepts {
 		for (int i = 0; i < str.length(); i++) {
 
 			char ch = str.charAt(i);
-			
-			
 
 			if (Character.isDigit(ch)) {
 				dCount++;
@@ -309,13 +305,9 @@ class StringConcepts {
 		Arrays.sort(ch1);
 		Arrays.sort(ch2);
 
-		StringBuilder sb1 = new StringBuilder();
+		String as1 = new StringBuilder().append(ch1).toString();
 
-		String as1 = sb1.append(ch1).toString();
-
-		StringBuilder sb2 = new StringBuilder();
-
-		String as2 = sb2.append(ch2).toString();
+		String as2 = new StringBuilder().append(ch2).toString();
 
 		if (as1.equals(as2)) {
 
@@ -329,30 +321,6 @@ class StringConcepts {
 	public String findLongestWord(String str) {
 
 		String split[] = str.split(" ");
-
-////		Map<String, Integer> map = new HashMap<>();
-//
-//		String temp = null;
-//
-//		int arr[] = new int[split.length];
-//
-//		for (int i = 0; i < split.length; i++) {
-//
-//			String word = split[i];
-//
-//			arr[i] = word.length();
-//
-//		}
-//
-//		int maxValue = arr[0];
-//
-//		for (int i = 0; i < arr.length; i++) {
-//
-//			if (maxValue <= arr[i]) {
-//				maxValue = arr[i];
-//				temp = split[i];
-//			}
-//		}
 
 		String longestWord = split[0];
 
@@ -693,21 +661,21 @@ class StringConcepts {
 		return list;
 	}
 
-	public String usingCharacterCount(String str) { 
+	public String usingCharacterCount(String str) {
 
-		if(str==null || str.isEmpty()) {
+		if (str == null || str.isEmpty()) {
 			return " ";
 		}
 		char ch[] = str.toCharArray();
-		
+
 		char visited = '\0';
-		
+
 		StringBuilder sb = new StringBuilder();
-		
+
 		for (int i = 0; i < ch.length; i++) {
 
 			int count = 1;
-			if (ch[i]!=visited) {
+			if (ch[i] != visited) {
 				for (int j = i + 1; j < ch.length; j++) {
 
 					if (ch[i] == ch[j]) {
@@ -721,11 +689,11 @@ class StringConcepts {
 			}
 		}
 
-		return (sb.toString().length()>str.length())?sb.toString():str;
+		return (sb.toString().length() > str.length()) ? sb.toString() : str;
 	}
-	
-	public boolean findsubString(String str1,String str2) {
-		
+
+	public boolean findsubString(String str1, String str2) {
+
 		int i = 0, j = 0;
 
 		while (i < str1.length() && j < str2.length()) {
@@ -737,6 +705,6 @@ class StringConcepts {
 		}
 
 		return i == str1.length();
-		
+
 	}
 }

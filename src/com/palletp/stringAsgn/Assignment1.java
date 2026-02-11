@@ -1,28 +1,8 @@
 package com.palletp.stringAsgn;
 
-import java.math.BigDecimal;
-
 public class Assignment1 {
 
 	public static void main(String[] args) {
-
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("Enter a Name");
-//
-//		String name = sc.next();
-//
-//		for (int i = name.length() - 1; i >= 0; i--) {
-//			System.out.print(name.charAt(i));
-//		}
-//
-//		System.out.println();
-//		StringBuilder sb = new StringBuilder();
-//		sb.append(name);
-//		char ch[] = sb.reverse().toString().toCharArray();
-//
-//		for (char reverse : ch) {
-//			System.out.print(reverse);
-//		}
 
 		char ch[] = { 'a', 'g', 'v', 'o' };
 
@@ -63,21 +43,18 @@ public class Assignment1 {
 
 		bill += consume * 12;
 		System.out.println(bill);
-		
-		
-		
-		int x=10;int y=30;int z=40;int k=35;
-		
-		int copyValue=0;
-		
-		copyValue=(x>y)?x:y;
-		copyValue=(copyValue>z)?copyValue:z;
+
+		int x = 10;
+		int y = 30;
+		int z = 40;
+		int k = 35;
+
+		int copyValue = 0;
+
+		copyValue = (x > y) ? x : y;
+		copyValue = (copyValue > z) ? copyValue : z;
 //		copyValue=(copyValue>k)?copyValue
-				
-	
 
 	}
-
-	
 
 }
