@@ -1,7 +1,5 @@
 package com.palletp.patterns;
 
-import java.util.Arrays;
-
 public class Level2NumberPattern {
 
 	public static void main(String[] args) {
@@ -9,16 +7,16 @@ public class Level2NumberPattern {
 		Level2 level2 = new Level2();
 		level2.numberDiamond();
 		level2.pascals();
-		level2.binaryTrianglePattern();
+		level2.binaryTrianglePattern();// imp
 		level2.hallowDiamond();
 		level2.bufferFlyPyramid();
 		level2.hollowButterflyPyramid();
 		level2.numberButterflyPattern();
 		level2.xPattern();
-		level2.spiralStarPattern();
-		level2.hollowSquareWithDiagonals();
+		level2.spiralStarPattern(); // imp
+		level2.hollowSquareWithDiagonals(); // imp
 		level2.mirrorNumberPyramid();
-		level2.hollowDiamondNumberPattern();
+		level2.hollowDiamondNumberPattern(); // imp
 	}
 }
 
@@ -61,15 +59,31 @@ class Level2 {
 	}
 
 	public void binaryTrianglePattern() {
-		int no = 4;
+		int no = 6;
 		for (int i = 0; i < no; i++) {
 			for (int j = 0; j <= i; j++) {
 
-				if ((i + j) % 2 == 0) {
+				if ((i + j) % 2 == 0) { // this logic is good
 					System.out.print(1 + " ");
 				} else {
 					System.out.print(0 + " ");
 				}
+
+//				if (i % 2 == 0) {                  // this is also  working fine
+//					if (j % 2 == 0) {
+//						System.out.print(1+" ");
+//					} else {
+//						System.out.print(0+" ");
+//					}
+//				}else {
+//					if(j%2==0) {
+//						System.out.print(0+" ");
+//					}else {
+//						System.out.print(1+" ");
+//					}
+//				}
+//			
+
 			}
 			System.out.println();
 		}
@@ -404,13 +418,13 @@ class Level2 {
 		}
 	}
 
-	public void hollowDiamondNumberPattern() {
+	public void hollowDiamondNumberPattern() { 
 
 		int n = 7;
 
 		for (int i = 1; i <= n; i += 2) {
 
-			for (int s = 1; s <= (n-i)/2; s++) {
+			for (int s = 1; s <= (n - i) / 2; s++) {
 				System.out.print(" ");
 			}
 
@@ -430,7 +444,7 @@ class Level2 {
 
 		for (int i = n - 2; i >= 1; i -= 2) {
 
-			for (int s = 1; s <= (n-i)/2; s++) {
+			for (int s = 1; s <= (n - i) / 2; s++) {
 				System.out.print(" ");
 			}
 

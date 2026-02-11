@@ -2,6 +2,8 @@ package com.basic.java.programs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StringPrograms {
 
@@ -9,13 +11,14 @@ public class StringPrograms {
 
 		Program4 program4 = new Program4();
 
-		program4.nEqualParts();
-		program4.subSetOfStrings();
+		program4.nEqualParts();// imp
+		program4.subSetOfStrings();// imp
 //		program1.findAllThePermutations();
 		program4.lowerToUpper();
-		program4.MaxAndMinOccurence();
+		program4.MaxAndMinOccurence(); // imp
+		program4.longestSubString(); // imp
 	}
- 
+
 }
 
 class Program4 {
@@ -63,7 +66,8 @@ class Program4 {
 
 			for (int j = 0; j < currentSize; j++) {
 
-				list.add(list.get(j) + (currentChar - '0')); // here we are applying asccii concept .because my String is Integer
+				list.add(list.get(j) + (currentChar - '0')); // here we are applying asccii concept .because my String
+																// is Integer
 																// String .
 			}
 		}
@@ -73,28 +77,6 @@ class Program4 {
 			System.out.println(values);
 		}
 	}
-
-//	public void findAllThePermutations() {
-//
-//		String str = "1234";
-//
-//		char ch[] = str.toCharArray();
-//
-//		for (int i = 0; i < ch.length; i++) {
-//			for (int j = 0; i < ch.length; j++) {
-//				for (int k = 0; k < ch.length; k++) {
-//					for (int l = 0; i < ch.length; l++) {
-//
-//						if (i != j && i != k && i != l && j != k && j != l && k != l) {
-//
-//							System.out.println(" " + ch[i] + ch[j] + ch[k] + ch[l]);
-//						}
-//					}
-//				}
-//			}
-//		}
-//
-//	}
 
 	public void lowerToUpper() {
 
@@ -113,72 +95,95 @@ class Program4 {
 		System.out.println(upperCase);
 	}
 
-	public void MaxAndMinOccurence() {
+	public void MaxAndMinOccurence() { // imp
 
-		String str = "grass is greener on the other side";
-		
-		str=str.trim();
+		String str = "programming";
 
-		char copy[]=str.toCharArray();
-		
-		StringBuilder sb= new StringBuilder();
-		
-		for(char c:copy) {
-			if(c!=' ') {
-				sb.append(c);
-			}
-		}
-		
-		String s=sb.toString();
-
-	char c[]=s.toCharArray();
-		int arr[] = new int[c.length];
-
-//		Arrays.sort(copy);
+		char ch[] = str.toCharArray();
 
 		char visited = '\0';
 
-		for (int i = 0; i < c.length; i++) {
-			if (c[i] != visited) {
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
 
-				int index = 0;
+		for (int i = 0; i < ch.length; i++) {
 
-				for (int j = i + 1; j < c.length; j++) {
+			if (visited != ch[i]) {
+				int count = 1;
+				for (int j = i + 1; j < ch.length; j++) {
 
-					if (c[i] == c[j]) {
-
-						c[j] = visited;
-						index++;
+					if (ch[i] == ch[j]) {
+						ch[j] = visited;
+						count++;
 
 					}
 				}
-
-				arr[i] = index;
+				map.put(ch[i], count);
 
 			}
-
 		}
 
-		int max = arr[0];
-		int min = arr[0];
 		char maxChar = ' ';
 		char minChar = ' ';
-		for (int i = 1; i < arr.length; i++) {
 
-			if (arr[i] > 0) {
-				if (max < arr[i]) {
-					max = arr[i];
-					maxChar = c[i];
-				}
-				if (min > arr[i] && arr[i]!=0) {
+		int maxCount = 0;
+		int minCount = Integer.MAX_VALUE;
 
-					min = arr[i];
-					minChar = c[i];
-				}
+		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+
+			if (entry.getValue() > maxCount) {
+
+				maxCount = entry.getValue();
+				maxChar = entry.getKey();
+			}
+
+			if (entry.getValue() < minCount) {
+				minCount = entry.getValue();
+				minChar = entry.getKey();
 			}
 		}
 
-		System.out.println("MaxChar"+"-"+maxChar + " " + minChar);
+		System.out.println("MaxChar:" + maxChar + "-" + maxCount);
+		System.out.println("MinChar:" + minChar + "-" + minCount);
+
+	}
+
+	public void withOutMapFindMaxAndMin() {
+
+	}
+
+	public void longestSubString() { // imp
+
+		String str = "abcabcbb";
+
+		String longestSubString = " ";
+
+		for (int i = 0; i < str.length(); i++) {
+
+			boolean visited[] = new boolean[256];
+
+			String currentString = " ";
+
+			for (int j = i; j < str.length(); j++) {
+
+				char ch = str.charAt(j);
+
+				if (visited[ch]) {
+					break;
+				}
+
+				visited[ch] = true;
+
+				currentString += ch;
+
+				if (currentString.length() > longestSubString.length()) {
+
+					longestSubString = currentString;
+				}
+
+			}
+		}
+		System.out.println(longestSubString);
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.basic.java.programs;
+ package com.basic.java.programs;
 
 import java.util.Arrays;
 
@@ -66,7 +66,7 @@ class Programs2 {
 
 			for (int j = i + 1; j < arr.length; j++) {
 
-				if (arr[i] < arr[j]) {
+				if (arr[i] > arr[j]) {
 					int temp = arr[i];
 					arr[i] = arr[j];
 					arr[j] = temp;

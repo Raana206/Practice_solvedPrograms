@@ -18,16 +18,16 @@ public class Patterns {
 		basicPattern.hollowSquarePattern();
 		basicPattern.hollowPyramidPattern();
 		basicPattern.floydsTriangle();
-		basicPattern.butterflyPattern();
+		basicPattern.butterflyPattern();//imp
 		basicPattern.invertedNumberPyramid();
 		basicPattern.alphabetTrianglePattern();
 		basicPattern.hollowDiamondPattern();
 		basicPattern.hourglassPattern();
-		basicPattern.xPattern();
+		basicPattern.xPattern();//imp
 		basicPattern.plusPattern();
 		basicPattern.snakeNumberPattern();
-		basicPattern.snakeNumberPatternOtherway2();
-		basicPattern.spiralPattern();
+		basicPattern.snakeNumberPatternOtherway2();//imp
+		basicPattern.spiralPattern();// imp
 		basicPattern.antiSpiralMatrix();
 
 //		for (int i = 1; i <= 5; i++) {
@@ -234,10 +234,10 @@ class BasicPattern {
 			System.out.println();
 		}
 
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 2; i <= 5; i++) { // why here i was took start index 2; remove if Condition
 
 			for (int j = 5; j >= i; j--) {
-				if (i != 1)
+//				if (i != 1)
 					System.out.print("* ");
 			}
 			for (int s = 2; s <= i; s++) {
@@ -247,7 +247,7 @@ class BasicPattern {
 				if (i != 1)
 					System.out.print("* ");
 			}
-			if (i != 1)
+//			if (i != 1)
 				System.out.println();
 		}
 
@@ -323,7 +323,6 @@ class BasicPattern {
 	}
 
 	public void hourglassPattern() {
-
 		for (int i = 1; i <= 5; i++) {
 
 			for (int k = 2; k <= i; k++) {
@@ -350,12 +349,13 @@ class BasicPattern {
 			}
 		}
 		System.out.println();
+
 	}
 
 	public void xPattern() { // imp
 
 		int n = 5;
-		for (int i = 1; i <=5; i++) {
+		for (int i = 1; i <= 5; i++) {
 
 			for (int j = 1; j <= n; j++) {
 
@@ -365,7 +365,6 @@ class BasicPattern {
 					System.out.print(" ");
 				}
 
-				
 			}
 			System.out.println();
 
