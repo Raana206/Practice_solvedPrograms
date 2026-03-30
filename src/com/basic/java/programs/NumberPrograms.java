@@ -18,7 +18,7 @@ public class NumberPrograms {
 		programs.reverseNumber();
 		programs.numberToWord();
 		programs.automorphicNumber();
-		programs.duckNumber();
+		programs.duckNumber1();
 		programs.petersonNumber();
 //		programs.perfectSquare();
 		programs.sunnyNumber();
@@ -41,28 +41,30 @@ class Programs {
 		int f1 = 0;
 		int f2 = 1;
 
-		System.out.println(f1);
-		System.out.println(f2);
+		System.out.print(f1 + ",");
+		System.out.print(f2);
 
 		for (int i = 1; i <= 5; i++) {
 
 			int f3 = f1 + f2;
 
-			System.out.println(f3);
+			System.out.print("," + f3);
 			f1 = f2;
 			f2 = f3;
 		}
+		System.out.println();
 	}
 
 	public void primeNumber() {
 
-		int initialValue=10; int endValue=50;
+		int initialValue = 0;
+		int endValue = 10;
 		for (int i = initialValue; i <= endValue; i++) {
 
-			if(i<2) 
-				
-			continue;
-			
+			if (i < 2)
+
+				continue;
+
 			boolean isPrime = true;
 
 //			 i/2= instead of we use  Math.Sq
@@ -184,7 +186,7 @@ class Programs {
 
 	public void numberToWord() {
 
-		int number = 95000;
+		int number = 35;
 
 		String ones[] = { " ", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven",
 				"Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
@@ -226,7 +228,7 @@ class Programs {
 
 	}
 
-	public void automorphicNumber() {
+	public void automorphicNumber() {  // given number after performing a square ,given number comes at end  ex-25 =625
 
 		int number = 25;
 
@@ -254,15 +256,79 @@ class Programs {
 
 	}
 
-	public void duckNumber() { // PENDING
+	public void duckNumber() { // i did this my own understanding.
 
 		int number = 3210;
 
+		int temp = number;
+
+		int digitCount = 0;
+
+		while (temp > 0) {
+
+			temp = temp / 10;
+			digitCount++;
+		}
+
+		int arr[] = new int[digitCount];
+
+		int index = arr.length - 1;
+
+		int n = number;
+		while (n > 0) {
+
+			arr[index--] = n % 10;
+
+			n /= 10;
+
+		}
+		if (arr[0] == 0) {
+			System.out.println("Not Duck Number");
+			return;
+		}
+		for (int i = 1; i < arr.length; i++) {
+
+			if (arr[i] == 0) {
+				System.out.println("Duck Number");
+				return;
+			}
+		}
+
+		System.out.println("Not Duck Number");
+
+	}
+
+	public void duckNumber1() { // Another Approach
+
+		int number = 3210; // case 1:-0 is not at first digit , and case2-> atleast one zero required. 
+
+		// Check first digit
+		int temp = number;
+		while (temp >= 10) {
+			temp /= 10;
+		}
+
+		if (temp == 0) {
+			System.out.println("Not Duck Number");
+			return;
+		}
+
+		// Check for zero in remaining digits
+		temp = number;
+		while (temp > 0) {
+			if (temp % 10 == 0) {
+				System.out.println("Duck Number");
+				return;
+			}
+			temp /= 10;
+		}
+
+		System.out.println("Not Duck Number");
 	}
 
 	public void petersonNumber() {
 
-		int number = 145;
+		int number = 145;  // sum of the digits f factorial 
 
 		int sumOfFactorial = 0;
 
@@ -291,24 +357,22 @@ class Programs {
 
 //		int number = 8;
 
-		boolean isPerfectSquare = false;
-
 		for (int i = 1; i * i <= number; i++) {
 
 			if (i * i == number) {
-				isPerfectSquare = true;
-				break;
+				return true;
 			}
 
 		}
+		return false;
 
-		if (isPerfectSquare) {
-//			System.out.println("Perfect Square");
-			return isPerfectSquare;
-		} else {
-			System.out.println("Not PerfectSquare");
-			return isPerfectSquare;
-		}
+//		if (isPerfectSquare) {
+////			System.out.println("Perfect Square");
+//			return isPerfectSquare;
+//		} else {
+//			System.out.println("Not PerfectSquare");
+//			return isPerfectSquare;
+//		}
 
 //		int square= (int)Math.sqrt(8);   //  using the predefined Method 
 //		

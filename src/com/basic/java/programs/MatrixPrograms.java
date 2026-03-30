@@ -71,6 +71,7 @@ class program3 {
 		}
 		System.out.println(" ");
 	}
+	
 
 	public void upperTrianglerMatrix() {
 
@@ -89,6 +90,7 @@ class program3 {
 			System.out.println();
 
 		}
+		System.out.println();
 	}
 
 	public void identityMatrix() {
@@ -122,7 +124,7 @@ class program3 {
 			for (int j = 0; j < col.length; j++) {
 
 				row[i] += matx1[i][j];
-				col[j] += matx1[i][j];
+				col[i] += matx1[j][i];
 
 			}
 
@@ -137,7 +139,7 @@ class program3 {
 
 		int year = 2020;
 
-		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+		if ((year % 4 == 0 || year % 400 == 0) && (year % 100 != 0)) {
 			System.out.println("Leap Year");
 		} else {
 			System.out.println("Not Leap Year");

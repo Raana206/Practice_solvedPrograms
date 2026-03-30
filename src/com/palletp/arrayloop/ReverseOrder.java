@@ -5,6 +5,8 @@ package com.palletp.arrayloop;
 public class ReverseOrder {
 
 	public static void main(String[] args) {
+		
+
 
 //		Scanner sc = new Scanner(System.in);
 //		System.out.println("Enter the Values From the KeyBord");
@@ -21,6 +23,10 @@ public class ReverseOrder {
 			System.out.println(ar[i]);
 		}
 	}
+	
+	
+	
+	
 }
 
 class OrderChecking {

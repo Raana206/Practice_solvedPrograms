@@ -18,17 +18,18 @@ public class Patterns {
 		basicPattern.hollowSquarePattern();
 		basicPattern.hollowPyramidPattern();
 		basicPattern.floydsTriangle();
-		basicPattern.butterflyPattern();//imp
+		basicPattern.butterflyPattern();// imp
 		basicPattern.invertedNumberPyramid();
 		basicPattern.alphabetTrianglePattern();
 		basicPattern.hollowDiamondPattern();
 		basicPattern.hourglassPattern();
-		basicPattern.xPattern();//imp
+		basicPattern.xPattern();// imp
 		basicPattern.plusPattern();
 		basicPattern.snakeNumberPattern();
-		basicPattern.snakeNumberPatternOtherway2();//imp
+		basicPattern.snakeNumberPatternOtherway2();// imp
 		basicPattern.spiralPattern();// imp
 		basicPattern.antiSpiralMatrix();
+		basicPattern.pyramid();
 
 //		for (int i = 1; i <= 5; i++) {
 //
@@ -238,7 +239,7 @@ class BasicPattern {
 
 			for (int j = 5; j >= i; j--) {
 //				if (i != 1)
-					System.out.print("* ");
+				System.out.print("* ");
 			}
 			for (int s = 2; s <= i; s++) {
 				System.out.print("    ");
@@ -248,7 +249,7 @@ class BasicPattern {
 					System.out.print("* ");
 			}
 //			if (i != 1)
-				System.out.println();
+			System.out.println();
 		}
 
 	}
@@ -582,5 +583,24 @@ class BasicPattern {
 			System.out.println();
 		}
 
+	}
+
+	public void pyramid() {
+
+		int n = 4;
+		for (int i = 1; i <= n; i++) {
+			
+//			for(int s=3;s>=i;s--) {
+//				System.out.print("  ");
+//			}
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j+" ");
+			}
+			for (int j = i - 1; j >= 1; j--) {
+				System.out.print(j+" ");
+			}
+			System.out.println();
+		}
 	}
 }
