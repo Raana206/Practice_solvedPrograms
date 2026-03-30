@@ -1,4 +1,4 @@
-package com.basic.java.programs;
+package com.palletp.strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +16,10 @@ public class StringPrograms {
 //		program1.findAllThePermutations();
 		program4.lowerToUpper();
 		program4.MaxAndMinOccurence(); // imp
+		program4.withOutMapFindMaxAndMin();
 		program4.longestSubString(); // imp
+		program4.isSubsequence();
+
 	}
 
 }
@@ -149,19 +152,51 @@ class Program4 {
 
 	public void withOutMapFindMaxAndMin() {
 
+		String str = "programming";
+		char maxChar = ' ';
+		char minChar = ' ';
+
+		int maxCount = 0;
+		int minCount = Integer.MAX_VALUE;
+
+		for (int i = 0; i < str.length(); i++) {
+			int count = 1;
+			for (int j = i + 1; j < str.length(); j++) {
+
+				 if(str.charAt(i)==str.charAt(j)) {
+					count++; 
+				 }
+			}
+			
+			if(count>maxCount) {
+				
+				maxCount=count;
+				maxChar=str.charAt(i);
+			}
+			
+			if(count<minCount) {
+				
+				minCount=count;
+				minChar=str.charAt(i);
+				
+			}
+		}
+		
+		System.out.println("MaxChar:" + maxChar + "-" + maxCount);
+		System.out.println("MinChar:" + minChar + "-" + minCount);
 	}
 
 	public void longestSubString() { // imp
 
 		String str = "abcabcbb";
 
-		String longestSubString = " ";
+		String longestSubString = "";
 
 		for (int i = 0; i < str.length(); i++) {
 
 			boolean visited[] = new boolean[256];
 
-			String currentString = " ";
+			String currentString = "";
 
 			for (int j = i; j < str.length(); j++) {
 
@@ -184,6 +219,27 @@ class Program4 {
 		}
 		System.out.println(longestSubString);
 
+	}
+
+	public void isSubsequence() {
+
+		String str1 = "abc";
+		String str2 = "ahxbdsc";
+		int j = 0;
+		int i = 0;
+
+		while (i < str1.length() && j < str2.length()) {
+
+			if (str1.charAt(i) == str2.charAt(j)) {
+				i++;
+			}
+			j++;
+		}
+		if (i == str1.length()) {
+			System.out.println("Follow the Correct Order");
+		} else {
+			System.out.println("Not SubSequence");
+		}
 	}
 
 }

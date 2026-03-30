@@ -6,7 +6,7 @@ public class Level2NumberPattern {
 
 		Level2 level2 = new Level2();
 		level2.numberDiamond();
-		level2.pascals();
+		level2.pascals(); 
 		level2.binaryTrianglePattern();// imp
 		level2.hallowDiamond();
 		level2.bufferFlyPyramid();
