@@ -16,7 +16,7 @@ public class Assignment2 {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a Name");
 
-		String name = sc.nextLine();
+		String name = "";
 
 		StringConcepts concept = new StringConcepts();
 
@@ -305,6 +305,8 @@ class StringConcepts {
 		Arrays.sort(ch1);
 		Arrays.sort(ch2);
 
+		System.out.println(Arrays.equals(ch1, ch2));
+
 		String as1 = new StringBuilder().append(ch1).toString();
 
 		String as2 = new StringBuilder().append(ch2).toString();
@@ -322,7 +324,8 @@ class StringConcepts {
 
 		String split[] = str.split(" ");
 
-		String longestWord = split[0];
+		String longestWord = "";
+		;
 
 		for (String word : split) {
 
@@ -335,32 +338,22 @@ class StringConcepts {
 
 	public void findFrequencyOfCharacters(String str) {
 
-		char ch[] = str.toCharArray();
+		String s = "Rangadu";
+		char ch[] = s.toCharArray();
 
-		char visited = '\0';
-
-		int arr[] = new int[ch.length];
+		int fre[] = new int[256];
 
 		for (int i = 0; i < ch.length; i++) {
 
-			if (ch[i] != visited) {
-				int frCount = 1;
-				for (int j = i + 1; j < ch.length; j++) {
-
-					if (ch[i] == ch[j]) {
-						frCount++;
-						ch[j] = visited;
-					}
-				}
-				arr[i] = frCount;
-			}
-
+			fre[ch[i]]++;
 		}
 
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < ch.length; i++) {
 
-			if (arr[i] > 0) {
-				System.out.println(ch[i] + "->" + arr[i]);
+			if (fre[ch[i]] != 0) {
+				System.out.println(ch[i] + "-->" + fre[ch[i]]);
+
+				fre[ch[i]] = 0;
 			}
 		}
 
@@ -408,7 +401,10 @@ class StringConcepts {
 	public char firstNonRepeatedCharacter(String str) {
 
 		str = str.toLowerCase();// handle the case-sensitive
-		char ch[] = str.toCharArray();
+
+		String s = "Rangadu";
+
+		char ch[] = s.toCharArray();
 
 		char visited = '\0';
 
@@ -469,33 +465,47 @@ class StringConcepts {
 
 	public String removeDuplicateCharacters(String str) {
 
-		if (str == null || str.isEmpty()) {
-			return str;
-		}
+//		if (str == null || str.isEmpty()) {
+//			return str;
+//		}
 
+		String s="Rangadu";
 		str = str.toLowerCase().trim();
 
-		char ch[] = str.toCharArray();
+		char ch[] = s.toCharArray();
 		char visited = '\0';
-
-		StringBuilder sb = new StringBuilder();
-
-		for (int i = 0; i < ch.length; i++) {
-
-			if ((ch[i] != visited)) {
-
-				for (int j = i + 1; j < ch.length; j++) {
-
-					if (ch[i] == ch[j]) {
-						ch[j] = visited;
-					}
-				}
-				sb.append(ch[i]);
+		
+		boolean []visted= new boolean[256];
+		
+		String st="";
+		for(int i=0;i<s.length();i++) {
+			
+			if(visted[ch[i]]!=true) {
+				
+				st=st+ch[i];
 			}
-
+			
+			visted[ch[i]]=true;
 		}
 
-		return sb.toString();
+//		StringBuilder sb = new StringBuilder();
+//
+//		for (int i = 0; i < ch.length; i++) {
+//
+//			if ((ch[i] != visited)) {
+//
+//				for (int j = i + 1; j < ch.length; j++) {
+//
+//					if (ch[i] == ch[j]) {
+//						ch[j] = visited;
+//					}
+//				}
+//				sb.append(ch[i]);
+//			}
+//
+//		}
+
+		return st.toString();
 	}
 
 	public boolean checkRotationalString(String str1, String str2) {

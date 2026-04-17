@@ -5,7 +5,7 @@ public class SortIntegersbyTheNumber1Bits {
 	public static void main(String[] args) {
 		
 		SortIntegersbyTheNumber1Bits bits= new SortIntegersbyTheNumber1Bits();
-		 bits.sortByBits(new int []{0,1,2,3,4,5,6,7,8});
+		 System.out.println(bits.sortByBits(new int []{0,1,2,3,4,5,6,7,8}));
 
 	}
 	

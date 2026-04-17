@@ -102,10 +102,12 @@ class BasicPattern {
 
 	public void pyramidPattern() {
 
+		System.out.println("Pyramid ");
+
 		for (int i = 1; i <= 5; i++) {
 
 			for (int k = 4; k >= i; k--) {
-				System.out.print("  ");
+				System.out.print(" ");
 			}
 			for (int j = 1; j <= i; j++) {
 				System.out.print("* ");
@@ -118,13 +120,14 @@ class BasicPattern {
 	}
 
 	public void invertedPyramid() {
+		System.out.println("inverted Pyramid");
 
 		for (int i = 1; i <= 5; i++) {
 
-			for (int k = 2; k <= i; k++) {
+			for (int k = 1; k < i; k++) {
 				System.out.print(" ");
 			}
-			for (int j = 5; j >= i; j--) {
+			for (int j = i; j <= 5; j++) {
 				System.out.print("* ");
 			}
 			System.out.println();
@@ -135,30 +138,35 @@ class BasicPattern {
 	}
 
 	public void diamondPattern() {
+		int n = 5;
 
-		for (int i = 1; i <= 5; i++) {
+		// upper part
+		for (int i = 1; i <= n; i++) {
 
-			for (int k = 4; k >= i; k--) {
+			for (int k = 1; k <= n - i; k++) {
 				System.out.print(" ");
 			}
-			for (int j = 1; j <= i; j++) {
-				System.out.print("* ");
-			}
-			System.out.println();
-		}
-		for (int i = 1; i <= 5; i++) {
 
-			for (int k = 2; k <= i; k++) {
-				System.out.print(" ");
+			for (int j = 1; j <= (2 * i - 1); j++) {
+				System.out.print("*");
 			}
-			for (int j = 5; j >= i; j--) {
-				System.out.print("* ");
-			}
+
 			System.out.println();
 		}
 
-		System.out.println();
+		// lower part
+		for (int i = n - 1; i >= 1; i--) {
 
+			for (int k = 1; k <= n - i; k++) {
+				System.out.print(" ");
+			}
+
+			for (int j = 1; j <= (2 * i - 1); j++) {
+				System.out.print("*");
+			}
+
+			System.out.println();
+		}
 	}
 
 	public void hollowSquarePattern() {
@@ -166,11 +174,9 @@ class BasicPattern {
 		for (int i = 1; i <= 5; i++) {
 			for (int j = 1; j <= 5; j++) {
 
-				if (i == 1 || i == 5) {
+				if (i == 1 || i == 5 || j == 1 || j == 5) {
 					System.out.print("* ");
 
-				} else if (j == 1 || j == 5) {
-					System.out.print("* ");
 				} else {
 					System.out.print("  ");
 				}
@@ -185,7 +191,7 @@ class BasicPattern {
 
 		for (int i = 1; i <= 5; i++) {
 
-			for (int k = 4; k >= i; k--) {
+			for (int k = 1; k <= 5 - i; k++) {
 				System.out.print(" ");
 			}
 
@@ -221,11 +227,13 @@ class BasicPattern {
 
 	public void butterflyPattern() {
 
-		for (int i = 1; i <= 5; i++) {
+		int n = 5;
+//		upper Part
+		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= i; j++) {
 				System.out.print("* ");
 			}
-			for (int s = 4; s >= i; s--) {
+			for (int s = 1; s <= n - i; s++) {
 				System.out.print("    ");
 			}
 			for (int k = 1; k <= i; k++) {
@@ -234,21 +242,20 @@ class BasicPattern {
 			}
 			System.out.println();
 		}
+//lower Part
+		for (int i = n - 1; i >= 1; i--) {
 
-		for (int i = 2; i <= 5; i++) { // why here i was took start index 2; remove if Condition
-
-			for (int j = 5; j >= i; j--) {
-//				if (i != 1)
+			for (int j = 1; j <= i; j++) {
 				System.out.print("* ");
 			}
-			for (int s = 2; s <= i; s++) {
+			for (int s = 1; s <= n - i; s++) {
 				System.out.print("    ");
 			}
-			for (int k = 5; k >= i; k--) {
-				if (i != 1)
-					System.out.print("* ");
+			for (int k = 1; k <= i; k++) {
+
+				System.out.print("* ");
 			}
-//			if (i != 1)
+
 			System.out.println();
 		}
 
@@ -256,13 +263,10 @@ class BasicPattern {
 
 	public void invertedNumberPyramid() {
 
-		for (int i = 1; i <= 5; i++) {
-			int s = 1;
-			for (int k = 2; k <= i; k++) {
-				System.out.print("");
-			}
-			for (int j = 5; j >= i; j--, s++) {
-				System.out.print(s + " ");
+		for (int i = 5; i >= 1; i--) {
+
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
 			}
 			System.out.println();
 		}
@@ -289,13 +293,14 @@ class BasicPattern {
 
 	public void hollowDiamondPattern() {
 
+		int n = 5;
 		for (int i = 1; i <= 5; i++) {
 
-			for (int k = 4; k >= i; k--) {
+			for (int k = 1; k <= n - i; k++) {
 				System.out.print(" ");
 			}
 			for (int j = 1; j <= i; j++) {
-				if (j == i || j == 1) {
+				if (j == 1 || j == i) {
 					System.out.print("* ");
 				} else {
 					System.out.print("  ");
@@ -303,51 +308,51 @@ class BasicPattern {
 			}
 			System.out.println();
 		}
-		for (int i = 1; i <= 5; i++) {
-			if (i != 1) {
-				for (int k = 2; k <= i; k++) {
-					System.out.print(" ");
-				}
-				for (int j = 5; j >= i; j--) {
+		for (int i = n - 1; i >= 1; i--) {
 
-					if (j == i || j == 5) {
-						System.out.print("* ");
-					} else {
-						System.out.print("  ");
-					}
-				}
-				System.out.println();
+			for (int k = 1; k <= n - i; k++) {
+				System.out.print(" ");
 			}
+			for (int j = 1; j <= i; j++) {
+
+				if (j == 1 || j == i) {
+					System.out.print("* ");
+				} else {
+					System.out.print("  ");
+				}
+			}
+			System.out.println();
+
 		}
 		System.out.println();
 
 	}
 
 	public void hourglassPattern() {
-		for (int i = 1; i <= 5; i++) {
+		int n = 5;
+		for (int i = n; i >= 1; i--) {
 
-			for (int k = 2; k <= i; k++) {
+			for (int k = 1; k <= n - i; k++) {
 				System.out.print(" ");
 			}
-			for (int j = 5; j >= i; j--) {
+			for (int j = 1; j <= i; j++) {
 
 				System.out.print("* ");
 			}
 			System.out.println();
 		}
 
-		for (int i = 1; i <= 5; i++) {
-			if (i != 1) {
-				for (int k = 4; k >= i; k--) {
-					System.out.print(" ");
-				}
-				for (int j = 1; j <= i; j++) {
+		for (int i = 2; i <= n; i++) {
 
-					System.out.print("* ");
-				}
-
-				System.out.println();
+			for (int k = n - i; k >= 1; k--) {
+				System.out.print(" ");
 			}
+			for (int j = 1; j <= i; j++) {
+
+				System.out.print("* ");
+			}
+
+			System.out.println();
 		}
 		System.out.println();
 
@@ -356,7 +361,7 @@ class BasicPattern {
 	public void xPattern() { // imp
 
 		int n = 5;
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 1; i <= n; i++) {
 
 			for (int j = 1; j <= n; j++) {
 
@@ -378,10 +383,9 @@ class BasicPattern {
 
 			for (int j = 1; j <= 5; j++) {
 
-				if (i == 3) {
+				if (i == 3 || j == 3) {
 					System.out.print("*");
-				} else if (j == 3) {
-					System.out.print("*");
+
 				} else {
 					System.out.print(" ");
 				}
@@ -481,20 +485,23 @@ class BasicPattern {
 			right--;
 
 //		    right -->left
-			for (int i = right; i >= left; i--) {
+			if (left < right) {
+				for (int i = right; i >= left; i--) {
 
-				arr[bottom][i] = temp;
-				temp++;
+					arr[bottom][i] = temp;
+					temp++;
+				}
+				bottom--;
 			}
-			bottom--;
-
 //			bottom -->top
-			for (int i = bottom; i >= top; i--) {
+			if (top < bottom) {
+				for (int i = bottom; i >= top; i--) {
 
-				arr[i][left] = temp;
-				temp++;
+					arr[i][left] = temp;
+					temp++;
+				}
+				left++;
 			}
-			left++;
 		}
 
 		for (int i = 0; i < arr.length; i++) {
@@ -589,16 +596,16 @@ class BasicPattern {
 
 		int n = 4;
 		for (int i = 1; i <= n; i++) {
-			
+
 //			for(int s=3;s>=i;s--) {
 //				System.out.print("  ");
 //			}
 
 			for (int j = 1; j <= i; j++) {
-				System.out.print(j+" ");
+				System.out.print(j + " ");
 			}
 			for (int j = i - 1; j >= 1; j--) {
-				System.out.print(j+" ");
+				System.out.print(j + " ");
 			}
 			System.out.println();
 		}

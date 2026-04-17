@@ -1,38 +1,10 @@
 package com.basic.java.programs.leetCode;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 public class LeetCodeProblemsMedium {
-
-	static int i = 0;
-
-	static class A {
-		public void d() {
-			System.out.println(i);
-		}
-	}
-
-	class B {
-
-		static int n = 10;
-
-		public static void f() {
-//			C c= new C();
-			class C {
-				public void g() {
-					System.out.println(90);
-				}
-			}
-			System.out.println(i);
-		}
-	}
 
 	public static void main(String[] args) {
 
-		int nums[] = { -100,-2,-3,1 };
+		int nums[] = { -100, -2, -3, 1 };
 
 		if (nums.length < 3) {
 			System.out.println(0);

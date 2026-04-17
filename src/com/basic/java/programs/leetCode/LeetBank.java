@@ -15,6 +15,7 @@ public class LeetBank {
 		int total = 0;
 
 		int weekStart = 1;
+		
 		while (day <= n) {
 
 			total += currentDeposit++;

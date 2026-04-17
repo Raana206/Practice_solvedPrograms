@@ -1,4 +1,4 @@
-package com.basic.java.programs.leetCode;
+package com.basic.java.programs.leetCode.arrays;
 
 public class RotationMatrix {
 
