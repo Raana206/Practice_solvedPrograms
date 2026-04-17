@@ -6,10 +6,9 @@ public class Level2NumberPattern {
 
 		Level2 level2 = new Level2();
 		level2.numberDiamond();
-		level2.pascals(); 
+		level2.pascals();
 		level2.binaryTrianglePattern();// imp
 		level2.hallowDiamond();
-		level2.bufferFlyPyramid();
 		level2.hollowButterflyPyramid();
 		level2.numberButterflyPattern();
 		level2.xPattern();
@@ -28,7 +27,7 @@ class Level2 {
 
 		for (int i = 1; i <= number; i++) {
 
-			for (int t = number - 1; t >= i; t--) {
+			for (int s = 1; s <= number - i; s++) {
 
 				System.out.print(" ");
 			}
@@ -40,9 +39,9 @@ class Level2 {
 			System.out.println();
 		}
 
-		for (int i = number - 1; i >= 1; i--) { // here actual number is 4 , but these i did -1 =3
+		for (int i = number - 1; i >= 1; i--) { // here void duplicate row
 
-			for (int s = number - 1; s >= i; s--) {
+			for (int s = 1; s <= number - i; s++) {
 
 				System.out.print(" ");
 			}
@@ -91,11 +90,11 @@ class Level2 {
 
 	public void pascals() {
 
-		int n = 4;
+		int n = 5;
 
 		for (int i = 0; i <= n; i++) {
 
-			for (int k = n - 1; k >= i; k--) {
+			for (int s = 1; s < n - i; s++) {
 
 				System.out.print(" ");
 			}
@@ -104,8 +103,9 @@ class Level2 {
 
 			for (int j = 0; j <= i; j++) {
 
-				System.out.print(number + " ");
-				number = number * (i - j) / (j + 1);
+				System.out.printf("%2d ", number);
+
+				number = number * (i - j) / (j + 1); // imp Logic or formula
 			}
 			System.out.println();
 		}
@@ -117,7 +117,7 @@ class Level2 {
 
 		for (int i = 1; i <= no; i++) {
 
-			for (int s = no - 1; s >= i; s--) {
+			for (int s = 1; s <= no - i; s++) {
 				System.out.print(" ");
 			}
 
@@ -126,8 +126,6 @@ class Level2 {
 				if (i == j || j == 1) {
 
 					System.out.print("* ");
-				} else if (i == 5) {
-					System.out.print("  ");
 				} else {
 					System.out.print("  ");
 				}
@@ -135,63 +133,22 @@ class Level2 {
 			System.out.println();
 		}
 
-		for (int i = 1; i <= no - 1; i++) {
+		for (int i = no - 1; i >= 1; i--) {
 
-			for (int s = 1; s <= i; s++) {
+			for (int s = 1; s <= no - i; s++) {
 				System.out.print(" ");
 			}
-			for (int j = no - 1; j >= i; j--) {
+			for (int j = 1; j <= i; j++) {
 
-				if (j == no - 1 || i == j) {
+				if (j == 1 || i == j) {
 
 					System.out.print("* ");
-				} else if (i == 1) {
-					System.out.print("  ");
 				} else {
 					System.out.print("  ");
 				}
 			}
 			System.out.println();
 		}
-	}
-
-	public void bufferFlyPyramid() {
-
-		int n = 4;
-		for (int i = 1; i <= 4; i++) {
-
-			for (int j = 1; j <= i; j++) {
-				System.out.print("*");
-			}
-
-			for (int s = n - 1; s >= i; s--) {
-				System.out.print("  ");
-			}
-
-			for (int k = 1; k <= i; k++) {
-				System.out.print("*");
-			}
-
-			System.out.println();
-		}
-
-		for (int i = 1; i <= n - 1; i++) {
-
-			for (int j = n - 1; j >= i; j--) {
-				System.out.print("*");
-			}
-
-			for (int s = 1; s <= i; s++) {
-				System.out.print("  ");
-			}
-
-			for (int k = n - 1; k >= i; k--) {
-				System.out.print("*");
-			}
-
-			System.out.println();
-		}
-		System.out.println();
 	}
 
 	public void hollowButterflyPyramid() {
@@ -207,7 +164,7 @@ class Level2 {
 				}
 			}
 
-			for (int s = n - 1; s >= i; s--) {
+			for (int s = 1; s <=n-i; s++) {
 				System.out.print("  ");
 			}
 
@@ -224,24 +181,24 @@ class Level2 {
 
 //		lower
 
-		for (int i = n; i >= 1; i--) {
+		for (int i = n-1; i >= 1; i--) {
 
 			for (int j = 1; j <= i; j++) {
 
-				if (j == i || j == 1 || i == n) {
+				if (j == i || j == 1) {
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
 				}
 			}
 
-			for (int s = n - 1; s >= i; s--) {
+			for (int s = 1; s <=n-i; s++) {
 				System.out.print("  ");
 			}
 
 			for (int k = 1; k <= i; k++) {
 
-				if (k == i || k == 1 || i == n) {
+				if (k == i || k == 1) {
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
@@ -304,7 +261,7 @@ class Level2 {
 
 			for (int j = 0; j < n; j++) {
 
-				if (i == j || i + j == n - 1) {
+				if (i == j || i + j == n - 1) { // here you i=0 starting value then 
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
@@ -418,7 +375,7 @@ class Level2 {
 		}
 	}
 
-	public void hollowDiamondNumberPattern() { 
+	public void hollowDiamondNumberPattern() {
 
 		int n = 7;
 

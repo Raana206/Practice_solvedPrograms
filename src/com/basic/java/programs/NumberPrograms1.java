@@ -1,4 +1,4 @@
- package com.basic.java.programs;
+package com.basic.java.programs;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,30 +89,54 @@ class Programs1 {
 
 	}
 
-	public void autoGraphicalNumber() { // pending
+	public void autoGraphicalNumber() {
 
-		int number = 21200;
+		int number = 1234;
 
 		int temp = number;
 
 		int digitsCount = 0;
 
-		int sumOfDigits = 0;
-
 		while (temp > 0) {
 
 			digitsCount++;
-			temp /= 10;
-		}
 
+			temp /= 10;
+
+		}
 		int arr[] = new int[digitsCount];
 
-		if (sumOfDigits == digitsCount) {
+		if (checkPattern(arr, number)) {
 			System.out.println("AutoGraphicalNumber");
 		} else {
 			System.out.println("Not AutoGraphical Number");
 		}
 
+	}
+
+	private boolean checkPattern(int[] arr, int number) {
+		int index = arr.length - 1;
+
+		while (number > 0) {
+
+			arr[index--] = number % 10;
+			number /= 10;
+
+		}
+		int fre[] = new int[10];
+		for (int i = 0; i < arr.length; i++) {
+
+			fre[arr[i]]++;
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+
+			if (fre[i] != arr[i])
+				return false;
+
+		}
+
+		return true;
 	}
 
 	public boolean checkPrimeNumber(int number) {
@@ -122,7 +146,7 @@ class Programs1 {
 		}
 
 		int limit = (int) Math.sqrt(number);
- 
+
 		for (int i = 2; i <= limit; i++) {
 
 			if (number % i == 0) {
@@ -291,9 +315,12 @@ class Programs1 {
 
 	public void findPrimeNo() {
 
-		for (int i = 2; i <= 40; i++) {
+		for (int i = 1; i <= 40; i++) {
+			if (i <= 1) {
+				continue;
+			}
 			boolean isPrime = true;
-			for (int j = 2; j <= i / 2; j++) {
+			for (int j = 2; j <= Math.sqrt(i); j++) {
 
 				if (i % j == 0) {
 					isPrime = false;
@@ -318,7 +345,7 @@ class Programs1 {
 			if (30 % i == 0) {
 				list.add(i);
 			}
-			
+
 			list.indexOf(list);
 //
 		}

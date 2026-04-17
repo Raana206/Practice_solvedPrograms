@@ -470,9 +470,9 @@ class Programs {
 
 	}
 
-	public void fascinatingNumber() {
+	public void fascinatingNumber() { 
 
-		int number = 327;
+		int number = 327;            // given number multiple 1,2,3  like 327*1,327*2, 327*3 finally combined the three values 
 
 		if (number < 100) {
 			System.out.println("Not facinatingNumber");
@@ -538,6 +538,8 @@ class Programs {
 		int numbers = 123425431;
 
 		String numberToString = String.valueOf(numbers);
+		
+		char ch2[]=numberToString.toCharArray();
 
 		int freq[] = new int[10];
 
@@ -551,7 +553,7 @@ class Programs {
 		for (int i = 0; i < freq.length; i++) { // printed frequency Count
 
 			if (freq[i] > 0) {
-				System.out.println(i + "-->" + freq[i]);
+				System.out.println(i+ "-->" + freq[i]);
 			}
 		}
 

@@ -8,7 +8,7 @@ public class CorporatePayRollAndTaxEngine {
 
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Please Enter Basic Of the Employee :");
+		System.out.println("Please Enter Basic Salary Of the Employee :");
 
 		double basicSalary = scanner.nextDouble();
 
