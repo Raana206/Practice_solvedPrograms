@@ -137,9 +137,9 @@ class program3 {
 
 	public void checkleapYear() {
 
-		int year = 2020;
+		int year = 2000;
 
-		if ((year % 4 == 0 || year % 400 == 0) && (year % 100 != 0)) {
+		if ((year % 400 == 0) || (year % 4 == 0 && (year % 100 != 0))) {
 			System.out.println("Leap Year");
 		} else {
 			System.out.println("Not Leap Year");
